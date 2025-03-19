@@ -14,6 +14,7 @@ import DepositsPage from "./pages/DepositsPage";
 import LoansPage from "./pages/LoansPage";
 import OneVBAdvisoryPage from "./pages/1VBAdvisoryPage";
 import NewsletterPage from "./pages/NewsletterPage";
+import ContactUsPage from "./pages/ContactUsPage";
 
 function App() {
   const [authenticated, setAuthenticated] = useState(true);
@@ -40,6 +41,7 @@ function App() {
     { component: <LoansPage />, route: "/loans" },
     { component: <OneVBAdvisoryPage />, route: "/1vb-advisory" },
     { component: <NewsletterPage />, route: "/newsletter" },
+    { component: <ContactUsPage />, route: "/contact-us" },
   ];
 
   return (

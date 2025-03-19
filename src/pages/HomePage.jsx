@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 import gcash from "/src/assets/gcash-logo-png_seeklogo-522261-removebg-preview.png";
 import bsp from "/src/assets/image-removebg-preview (1).png";
@@ -24,6 +24,7 @@ import {
   faHandHoldingDollar,
   faHandsHoldingCircle,
   faLocation,
+  faLocationDot,
   faNewspaper,
   faPiggyBank,
   faPlus,
@@ -36,6 +37,8 @@ import {
 import { faMoneyBillTransfer } from "@fortawesome/free-solid-svg-icons/faMoneyBillTransfer";
 
 export default function HomePage() {
+  const navigate = useNavigate();
+
   const agencies = [
     { image: bsp, link: "" },
     { image: usaid, link: "" },
@@ -157,7 +160,7 @@ export default function HomePage() {
         <div className="h-screen w-full bg-black/50">
           <div className="flex items-center h-full w-1/2">
             <div className="flex flex-col justify-start gap-[20px] px-[60px]">
-              <button className="text-[9px] w-[100px] bg-[#396131] rounded-[10px] text-white text-center font-bold py-[5px]">
+              <button className="text-[9px] w-[100px] bg-[#396131] rounded-[10px] text-white text-center font-bold py-[5px] cursor-pointer hover:bg-white hover:outline-[1px] hover:outline-[#396131] hover:text-[#396131] transition-all">
                 <span className="text-center">Read More</span>
               </button>
               <div className="flex flex-col">
@@ -178,10 +181,10 @@ export default function HomePage() {
                 business, you can count on us to be your lifetime friend
               </span>
               <div className="flex gap-[20px]">
-                <button className="w-[100px] text-center font-bold text-[11px] text-white rounded-[10px] py-[10px] bg-[#396131]">
+                <button className="w-[100px] text-center font-bold text-[11px] text-white rounded-[10px] py-[10px] bg-[#396131] cursor-pointer hover:bg-white hover:outline-[1px] hover:outline-[#396131] hover:text-[#396131] transition-all">
                   Our Services
                 </button>
-                <button className="w-[100px] text-center font-bold text-[11px] text-[#396131] rounded-[10px] py-[10px] bg-white">
+                <button className="w-[100px] text-center font-bold text-[11px] text-[#396131] rounded-[10px] py-[10px] bg-white cursor-pointer hover:bg-[#396131] hover:outline-[1px] hover:outline-white hover:text-white transition-all">
                   About Us
                 </button>
               </div>
@@ -233,7 +236,10 @@ export default function HomePage() {
             Maecenas ac purus scelerisque pellentesque urna lacus scelerisque
             morbi.
           </span>
-          <button className="flex justify-center w-full font-bold text-[15px] text-[#3D3D3D] hover:underline transition-all cursor-pointer">
+          <button
+            onClick={() => navigate("/about-us")}
+            className="flex justify-center w-full font-bold text-[15px] text-[#3D3D3D] hover:underline transition-all cursor-pointer"
+          >
             More About Us
           </button>
         </div>
@@ -262,7 +268,7 @@ export default function HomePage() {
                 <div className="flex items-center gap-[10px]  mb-[10px]">
                   <div className="flex items-center justify-center h-[12px] w-[9px]">
                     <FontAwesomeIcon
-                      icon={faLocation}
+                      icon={faLocationDot}
                       className="w-full h-full"
                     />
                   </div>
@@ -284,7 +290,7 @@ export default function HomePage() {
           <div className="w-full text-center font-bold text-[15px] text-[#3D3D3D]">
             <button
               className="hover:underline cursor-pointer"
-              onClick={() => {}}
+              onClick={() => navigate("/properties-for-sale")}
             >
               More Properties For Sale
             </button>
@@ -332,7 +338,10 @@ export default function HomePage() {
             Maecenas ac purus scelerisque pellentesque urna lacus scelerisque
             morbi.
           </span>
-          <button className="flex justify-center w-full font-bold text-[15px] text-[#3D3D3D] hover:underline transition-all cursor-pointer">
+          <button
+            onClick={() => navigate("/consumer-protection")}
+            className="flex justify-center w-full font-bold text-[15px] text-[#3D3D3D] hover:underline transition-all cursor-pointer"
+          >
             More About Consumer Protection
           </button>
         </div>
@@ -424,7 +433,7 @@ export default function HomePage() {
           <div className="w-full text-center font-bold text-[15px] text-[#3D3D3D]">
             <button
               className="hover:underline cursor-pointer"
-              onClick={() => {}}
+              onClick={() => navigate("/deposits")}
             >
               More About Deposits
             </button>
@@ -443,7 +452,7 @@ export default function HomePage() {
       <div className="flex px-[60px] gap-[20px] mb-[65px]">
         <div className="flex flex-col text-left items-start">
           <span className="text-[16px] font-semibold text-[#3D3D3D] mb-[20px]">
-            PROPERTIES FOR SALE
+            LOANS
           </span>
           <div className="w-[400px] h-[1px] bg-[#D9D9D9] mb-[20px]"></div>
           <span className="text-[32px] font-bold text-[#3D3D3D] w-[300px]">
@@ -457,7 +466,7 @@ export default function HomePage() {
                 <img
                   src={loan.image}
                   alt=""
-                  className="rounded-[15px] mb-[15px] drop-shadow-lg"
+                  className="rounded-[15px] mb-[15px] hover:drop-shadow-md transition-all"
                 />
                 <div className="flex items-center gap-[10px] mb-[15px]">
                   <div className="flex items-center justify-center h-[15px] w-[15px]">
@@ -471,7 +480,10 @@ export default function HomePage() {
                   </span>
                 </div>
                 <div className="w-full h-[1px] bg-[#D9D9D9] mb-[15px]"></div>
-                <button className="text-left text-[11px] font-bold text-[#3D3D3D] hover:underline transition-all cursor-pointer">
+                <button
+                  onClick={() => navigate("/loans")}
+                  className="text-left text-[11px] font-bold text-[#3D3D3D] hover:underline transition-all cursor-pointer"
+                >
                   {`More About ${loan.loan_type}`}
                 </button>
               </div>
@@ -480,7 +492,7 @@ export default function HomePage() {
           <div className="w-full text-center font-bold text-[15px] text-[#3D3D3D]">
             <button
               className="hover:underline cursor-pointer"
-              onClick={() => {}}
+              onClick={() => navigate("/loans")}
             >
               More About Loans
             </button>
@@ -510,8 +522,11 @@ export default function HomePage() {
             Maecenas ac purus scelerisque pellentesque urna lacus scelerisque
             morbi.
           </span>
-          <button className="flex justify-center w-full font-bold text-[15px] text-[#3D3D3D] hover:underline transition-all cursor-pointer">
-            More About Consumer Protection
+          <button
+            onClick={() => navigate("/1vb-advisory")}
+            className="flex justify-center w-full font-bold text-[15px] text-[#3D3D3D] hover:underline transition-all cursor-pointer"
+          >
+            More 1VB Advisory
           </button>
         </div>
         <div className="flex flex-col text-right items-end">
@@ -527,7 +542,7 @@ export default function HomePage() {
       <div className="flex px-[60px] gap-[20px] mb-[65px]">
         <div className="flex flex-col text-left">
           <span className="text-[16px] font-semibold text-[#3D3D3D] mb-[20px]">
-            PROPERTIES FOR SALE
+            NEWSLETTER
           </span>
           <div className="w-[400px] h-[1px] bg-[#D9D9D9] mb-[20px]"></div>
           <span className="text-[32px] font-bold text-[#3D3D3D] w-[300px]">
@@ -560,7 +575,10 @@ export default function HomePage() {
                 <span className="text-[10px] text-[#3D3D3D] mb-[10px]">
                   {news.content}
                 </span>
-                <button className="hover:underline font-bold text-[12px] cursor-pointer text-left">
+                <button
+                  onClick={() => navigate("/newsletter")}
+                  className="hover:underline font-bold text-[12px] cursor-pointer text-left"
+                >
                   Read News
                 </button>
               </div>
@@ -569,7 +587,7 @@ export default function HomePage() {
           <div className="w-full text-center font-bold text-[15px] text-[#3D3D3D]">
             <button
               className="hover:underline cursor-pointer"
-              onClick={() => {}}
+              onClick={() => navigate("/newsletter")}
             >
               More About Newsletter
             </button>
