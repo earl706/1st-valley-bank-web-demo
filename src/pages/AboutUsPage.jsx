@@ -20,9 +20,9 @@ import {
   faPlus,
   faReceipt,
   faSave,
-  faTachographDigital,
   faTags,
   faTicket,
+  faUpload,
   faWheatAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import { faMoneyBillTransfer } from "@fortawesome/free-solid-svg-icons/faMoneyBillTransfer";
@@ -174,6 +174,14 @@ export default function AboutUsPage() {
       "Net Interest Income: ₱983.7 million",
       "Net Income: ₱224.9 million",
     ],
+  }));
+
+  const branches = [0, 1, 2, 3, 4, 5].map((index) => ({
+    name: "BAROY",
+    image: loans_image,
+    address: "Poblacion, Baroy,  Lanao del Norte",
+    phone_numbers: "0917-849-6985 / 0955-512-2468 / 063-227-7142",
+    email_address: "baroy@1vb.com.ph",
   }));
 
   return (
@@ -685,7 +693,7 @@ export default function AboutUsPage() {
           Corporate Profile
         </span>
         <span className="w-full text-center text-[18px] font-bold mb-[20px]">
-          Corporate Profile
+          Senior Management
         </span>
         <div className="flex flex-col justify-center items-center">
           <div className="rounded-full bg-gray-300 h-[100px] w-[100px] mb-[20px]"></div>
@@ -730,7 +738,7 @@ export default function AboutUsPage() {
           ))}
         </div>
       </div>
-      <div className="px-[60px]">
+      <div className="px-[60px] mb-[40px]">
         <span className="text-[24px] font-bold text-[#3D3D3D] mb-[20px]">
           Annual Reports
         </span>
@@ -759,14 +767,14 @@ export default function AboutUsPage() {
                 Financial Performance
               </span>
               <div className="w-full h-[1px] bg-[#D9D9D9] mb-[10px]"></div>
-              <div className="flex mb-[20px] justify-between">
+              <div className="flex justify-between mb-[40px]">
                 <div className="flex flex-col">
                   <span className="text-[18px] font-semibold mb-[10px]">
-                    Financial Performance
+                    Key Figures
                   </span>
                   {report.key_figures.map((highlight, index) => (
                     <div className="flex items-center gap-[10px] mb-[10px]">
-                      <FontAwesomeIcon icon={faTachographDigital} />
+                      <FontAwesomeIcon icon={faUpload} />
                       <span className="text-[16px]">{highlight}</span>
                     </div>
                   ))}
@@ -777,14 +785,46 @@ export default function AboutUsPage() {
                   </span>
                   {report.comparative_growth.map((highlight, index) => (
                     <div className="flex items-center gap-[10px] mb-[10px]">
-                      <FontAwesomeIcon icon={faHighlighter} />
+                      <FontAwesomeIcon icon={faSave} />
                       <span className="text-[16px]">{highlight}</span>
                     </div>
                   ))}
                 </div>
               </div>
+              <div className="font-bold text-[18px] w-full text-center">
+                <button className="hover:underline transition-all cursor-pointer">
+                  See Full Report
+                </button>
+              </div>
             </div>
           ))}
+        </div>
+      </div>
+      <div className="px-[40px]">
+        <span className="text-[24px] font-bold text-[#3D3D3D] mb-[20px]">
+          Branch Directory
+        </span>
+        <div className="w-[640px] h-[1px] bg-[#D9D9D9] mb-[20px]"></div>
+        <div className="grid grid-cols-2 gap-[60px] mb-[40px]">
+          {branches.map((branch, index) => (
+            <div className="flex drop-shadow-lg bg-white rounded-[20px] p-[20px] gap-[20px]">
+              <img
+                src={branch.image}
+                className="w-[150px] h-[150px] rounded-[15px]"
+              />
+              <div className="flex flex-col justify-evenly">
+                <span className="font-bold text-[22px]">{branch.name}</span>
+                <span className="font-bold text-[14px]">{branch.address}</span>
+                <span className="text-[14px]">{branch.phone_numbers}</span>
+                <span className="text-[14px]">{branch.email_address}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="w-full text-center mb-[60px]">
+          <button className="font-bold text-[18px] hover:underline transition-all cursor-pointer">
+            See All Branches
+          </button>
         </div>
       </div>
     </>
