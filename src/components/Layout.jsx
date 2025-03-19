@@ -40,11 +40,6 @@ export default function Layout({ children }) {
       navItem: "ABOUT US",
       link: "/about-us",
       sublinks: [
-        "CORPORATE PROFILE",
-        "ANNUAL REPORTS",
-        "LEARN MORE ABOUT US",
-        "BRANCH DIRECTORY",
-        "DIGITAL BANKING PRIVACY",
         { section: "corporate-profile", name: "CORPORATE PROFILE" },
         { section: "annual-reports", name: "ANNUAL REPORTS" },
         { section: "more-about-us", name: "LEARN MORE ABOUT US" },
