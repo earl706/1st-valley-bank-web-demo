@@ -1,5 +1,5 @@
 import React from "react";
-import property from "/src/assets/Screenshot 2025-03-18 at 7.31.29 PM.png";
+import propertyPhoto from "/src/assets/Screenshot 2025-03-18 at 7.31.29 PM.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBriefcaseClock,
@@ -24,9 +24,10 @@ import {
 
 export default function PropertiesForSalePage() {
   const properties_for_sale = [0, 1, 2, 3, 4, 5].map((index) => ({
-    image: property,
+    image: propertyPhoto,
     name: "KIA BONGO DROPSIDE",
     plate_number: "JD05067",
+    year_model: "2017",
     location: "Bacolod, Lanao Del Norte",
     price: "PHP 180,000",
   }));
@@ -61,13 +62,128 @@ export default function PropertiesForSalePage() {
           </div>
         </div>
       </div>
-      <div className="px-[40px]">
+      <div className="px-[60px]">
         <div className="flex flex-col">
           <span className="font-bold text-[24px] text-[#3D3D3D] mb-[10px]">
             About Us
           </span>
           <div className="w-[595px] h-[1px] bg-[#D9D9D9] mb-[20px]"></div>
         </div>
+      </div>
+      <div className="flex flex-col gap-[100px] px-[60px] mb-[60px]">
+        {properties_for_sale.map((property, index) =>
+          index % 2 == 0 ? (
+            <div className="flex w-full gap-[60px] items-start">
+              <div className="flex flex-col items-end justify-end gap-[15px] w-1/2 text-right">
+                <div className="flex flex-col gap-[10px]">
+                  <span className="font-bold text-[16px]">UNIT</span>
+                  <span className="font-semibold text-[14px]">
+                    {property.name}
+                  </span>
+                </div>
+                <div className="flex flex-col gap-[10px]">
+                  <span className="font-bold text-[16px]">PLATE NUMBER</span>
+                  <span className="font-semibold text-[14px]">
+                    {property.plate_number}
+                  </span>
+                </div>
+                <div className="flex flex-col gap-[10px]">
+                  <span className="font-bold text-[16px]">YEAR MODEL</span>
+                  <span className="font-semibold text-[14px]">
+                    {property.year_model}
+                  </span>
+                </div>
+                <div className="flex flex-col gap-[10px]">
+                  <span className="font-bold text-[16px]">ADDRESS</span>
+                  <span className="font-semibold text-[14px]">
+                    {property.location}
+                  </span>
+                </div>
+                <div className="flex flex-col gap-[10px]">
+                  <span className="font-bold text-[16px]">PRICE</span>
+                  <span className="font-semibold text-[14px]">
+                    {property.price}
+                  </span>
+                </div>
+              </div>
+              <div className="flex gap-[25px] w-1/2">
+                <img
+                  src={property.image}
+                  className="rounded-[20px] h-[77%] w-[77%] bg-gray-300 drop-shadow-lg"
+                />
+                <div className="flex flex-col justify-between gap-[20px]">
+                  <img
+                    src={property.image}
+                    className="rounded-[20px] h-[50%] w-full bg-gray-300 drop-shadow-lg"
+                  />
+                  <img
+                    src={property.image}
+                    className="rounded-[20px] h-[50%] w-full bg-gray-300 drop-shadow-lg"
+                  />
+                  <img
+                    src={property.image}
+                    className="rounded-[20px] h-[50%] w-full bg-gray-300 drop-shadow-lg"
+                  />
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="flex w-full gap-[60px] items-start">
+              <div className="flex gap-[25px] w-1/2">
+                <div className="flex flex-col justify-between gap-[20px]">
+                  <img
+                    src={property.image}
+                    className="rounded-[20px] h-[50%] w-full bg-gray-300 drop-shadow-lg"
+                  />
+                  <img
+                    src={property.image}
+                    className="rounded-[20px] h-[50%] w-full bg-gray-300 drop-shadow-lg"
+                  />
+                  <img
+                    src={property.image}
+                    className="rounded-[20px] h-[50%] w-full bg-gray-300 drop-shadow-lg"
+                  />
+                </div>
+                <img
+                  src={property.image}
+                  className="rounded-[20px] h-[77%] w-[77%] bg-gray-300 drop-shadow-lg"
+                />
+              </div>
+              <div className="flex flex-col items-start justify-start gap-[15px] w-1/2 text-left">
+                <div className="flex flex-col gap-[10px]">
+                  <span className="font-bold text-[16px]">UNIT</span>
+                  <span className="font-semibold text-[14px]">
+                    {property.name}
+                  </span>
+                </div>
+                <div className="flex flex-col gap-[10px]">
+                  <span className="font-bold text-[16px]">PLATE NUMBER</span>
+                  <span className="font-semibold text-[14px]">
+                    {property.plate_number}
+                  </span>
+                </div>
+                <div className="flex flex-col gap-[10px]">
+                  <span className="font-bold text-[16px]">YEAR MODEL</span>
+                  <span className="font-semibold text-[14px]">
+                    {property.year_model}
+                  </span>
+                </div>
+                <div className="flex flex-col gap-[10px]">
+                  <span className="font-bold text-[16px]">ADDRESS</span>
+                  <span className="font-semibold text-[14px]">
+                    {property.location}
+                  </span>
+                </div>
+                <div className="flex flex-col gap-[10px]">
+                  <span className="font-bold text-[16px]">PRICE</span>
+                  <span className="font-semibold text-[14px]">
+                    {property.price}
+                  </span>
+                </div>
+              </div>
+            </div>
+          )
+        )}
       </div>
     </>
   );
